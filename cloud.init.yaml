@@ -1,0 +1,29 @@
+#cloud-config
+# Update apt database on first boot
+# (ie run apt-get update)
+#
+# Default: true
+package_update: true
+
+# Upgrade the instance on first boot
+package_upgrade: true
+
+# Reboot after package install/update if necessary
+package_reboot_if_required: true
+
+# For 'apt' specific config, see cloud-config-apt.txt
+packages:
+  - nano
+
+runcmd:
+  # Install tailscale
+  - curl -fsSL https://tailscale.com/install.sh | sh && sudo tailscale up --auth-key=tskey-1234567890abcdef
+  - tailscale up --ssh
+
+disable_root: false
+
+# set the locale to a given locale
+locale: en_US.UTF-8
+locale_configfile: /etc/default/locale
+final_message: "The system is finally up, after $UPTIME seconds"
+timezone: Europe/Amsterdam

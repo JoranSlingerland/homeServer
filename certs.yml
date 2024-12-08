@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /traefik/certs/domain.cert
+      keyFile: /traefik/certs/domain.key
