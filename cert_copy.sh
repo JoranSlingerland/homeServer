@@ -1,9 +1,11 @@
-#!/bin/bash
+  GNU nano 7.2                                                                            cert_copy.sh                                                                                      #!/bin/bash
 
 # Define variables
 DOMAIN="joranslingerland.com"
 LE_PATH="/etc/letsencrypt/live/$DOMAIN"
 CERT_DEST="/data/coolify/proxy/certs"
+ACME_FILE="/data/coolify/proxy/acme.json"
+DOCKER_COMPOSE_PATH="/data/coolify/proxy"
 
 # Files to work with
 FULLCHAIN="$LE_PATH/fullchain.pem"
